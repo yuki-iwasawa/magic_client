@@ -3,10 +3,10 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
  
-public class InputManager : MonoBehaviour
+public class UserRegisterInputManager : MonoBehaviour
 {
 
-    public static InputField inputField;
+    public static InputField userNameField;
 
 
     /// <summary>
@@ -16,7 +16,7 @@ public class InputManager : MonoBehaviour
     void Start()
     {
 
-        inputField = GetComponent<InputField>();
+        userNameField = GetComponent<InputField>();
 
         InitInputField();
     }
@@ -32,9 +32,9 @@ public class InputManager : MonoBehaviour
     public void InputLogger()
     {
 
-        string inputValue = inputField.text;
+        string userNameValue = userNameField.text;
 
-        Debug.Log(inputValue);
+        Debug.Log(userNameValue);
 
         //InitInputField();
     }
@@ -51,10 +51,10 @@ public class InputManager : MonoBehaviour
     {
 
         // 値をリセット
-        inputField.text = "";
+        userNameField.text = "";
 
         // フォーカス
-        inputField.ActivateInputField();
+        userNameField.ActivateInputField();
     }
 
 
@@ -62,8 +62,8 @@ public class InputManager : MonoBehaviour
     /// Gets the input field.
     /// </summary>
     /// <returns>The input field.</returns>
-    public static InputField getInputField() {
-        return inputField;
+    public static InputField getUserNameField() {
+        return userNameField;
     }
 
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 
-public class SubmitManager : MonoBehaviour {
+public class UserRegisterSubmitManager : MonoBehaviour {
+
+    public static UnityWebRequest request;
 
     public void OnClickButton() {
             StartCoroutine(Connect());
@@ -12,12 +14,12 @@ public class SubmitManager : MonoBehaviour {
 
     private IEnumerator Connect() {
 
-        InputField x = InputManager.getInputField(); // ログイン画面の入力フォーム情報取得
-        string user_name = x.text; //入力されたユーザ名を格納
+        InputField userNameField = UserRegisterInputManager.getUserNameField(); // ログイン画面の入力フォーム情報取得
+        string userName = userNameField.text; //入力されたユーザ名を格納
 
         // ユーザ作成API
-        UnityWebRequest request = UnityWebRequest.Get("http://~~"); 
-        request.SetRequestHeader("name", user_name);
+        request = UnityWebRequest.Get("http://localhost:3000/users/register1"); 
+        request.SetRequestHeader("name", userName);
         yield return request.SendWebRequest();
 
         if (request.error == null)
@@ -29,5 +31,15 @@ public class SubmitManager : MonoBehaviour {
             Debug.Log("request Submit Error: " + request.responseCode.ToString() + request.error);
         }
 
+    }
+
+    public static string getUserName()
+    {
+        return request.downloadHandler.text;
+    }
+
+    public static string getUserCode()
+    {
+        return request.downloadHandler.text;
     }
 }
