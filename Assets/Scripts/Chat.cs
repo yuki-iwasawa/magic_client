@@ -78,10 +78,10 @@ public class Chat : MonoBehaviour
 
             dict["command"] = "message";
 
-            dict["identifier"] = JsonUtility.ToJson(identifier); // 一度JSONにシリアライズしておく
-            dict["data"] = JsonUtility.ToJson(data);
+            dict["identifier"] = JsonConvert.SerializeObject(identifier); // 一度JSONにシリアライズしておく
+            dict["data"] = JsonConvert.SerializeObject(data);
 
-            ws.Send(JsonUtility.ToJson(dict));
+            ws.Send(JsonConvert.SerializeObject(dict));
 
             //dict["identifier"] = Json.Serialize(identifier); // 一度JSONにシリアライズしておく
             //ws.Send(JSON.Serialize(dict));
