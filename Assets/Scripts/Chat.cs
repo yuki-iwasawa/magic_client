@@ -10,38 +10,20 @@ public class Chat : MonoBehaviour
 
     void Start()
     {
-        //var dict = new Dictionary<string, object>();
-        //var identifier = new Dictionary<string, string>();
-        //identifier["channel"] = "ChatChannel";
-
-        //dict["command"] = "subscribe";
-
-        //dict["identifier"] = JsonUtility.ToJson(identifier); // 一度JSONにシリアライズしておく
-
         ws = new WebSocket("ws://localhost:3000/cable");
-
-
         ws.OnOpen += (sender, e) =>
         {
             var dict = new Dictionary<string, object>();
             var identifier = new Dictionary<string, string>();
-            //var data = new Dictionary<string, string>();
             identifier["channel"] = "ChatChannel";
 
-            //data["action"] = "speak";
-            //data["message"] = "hello";
-
             dict["command"] = "subscribe";
-
             dict["identifier"] = JsonConvert.SerializeObject(identifier); // 一度JSONにシリアライズしておく
-            //dict["data"] = JsonUtility.ToJson(data);
 
             ws.Send(JsonConvert.SerializeObject(dict));
 
             Debug.Log("WebSocket Open");
         };
-
-        //ws.Send(JsonUtility.ToJson(dict));
 
         ws.OnMessage += (sender, e) =>
         {
@@ -77,15 +59,10 @@ public class Chat : MonoBehaviour
             data["message"] = "hello";
 
             dict["command"] = "message";
-
             dict["identifier"] = JsonConvert.SerializeObject(identifier); // 一度JSONにシリアライズしておく
             dict["data"] = JsonConvert.SerializeObject(data);
 
             ws.Send(JsonConvert.SerializeObject(dict));
-
-            //dict["identifier"] = Json.Serialize(identifier); // 一度JSONにシリアライズしておく
-            //ws.Send(JSON.Serialize(dict));
-            //ws.Send("Test Message");
         }
 
     }
