@@ -1,65 +1,34 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
 public class ChatSendScript : MonoBehaviour
 {
-    // メッセージを管理するリスト
-    private List<string> messages = new List<string>();
     // Chat用のテキスト
-    private string currentMessage = string.Empty;
-    public int layer;
-    public GUIStyleState styleState;
-    private GUIStyle style;
+    private string chatMessage = string.Empty;
+    private InputField chatInput;
 
-    private void OnGUI()
+    public void OnClickButton()
     {
-        GUILayout.Space(20);
-        GUI.depth = layer;
-
-        createMessage(messages);
-
-        // Chat入力欄の生成
-        GUILayout.BeginHorizontal();
-
-        // 入力情報取得
-        currentMessage = GUI.TextField(new Rect(20, 275, 750, 25), currentMessage);
-
-        // Sendボタン
-        if (GUI.Button(new Rect(770, 275, 50, 25), "Send", "button"))
-        {
-            // 入力が空ではない場合処理
-            if (!string.IsNullOrEmpty(currentMessage.Trim()))
-            {
-                Debug.Log(currentMessage);
-                messages.Add(currentMessage);
-
-                // 送信後は、入力値を空
-                currentMessage = string.Empty;
-            }
-        }
-
-        GUILayout.EndHorizontal();
-
-
+        StartCoroutine(ChatSend());
     }
 
-    private void createMessage(List<string> messages)
+    private IEnumerator ChatSend()
     {
-        // 入力されたメッセージを逆順に表示
-        for (int i = 0; i < messages.Count; i++)
-        {
-            styleState = new GUIStyleState();
-            style = new GUIStyle();
+        // 入力された値を取得
+        chatInput = ChatInputScript.getChatInputField();
+        chatMessage = chatInput.text;
 
-            styleState.textColor = Color.red;
-            style.normal = styleState;
+        // Chatテキスト追加
+        ChatViewScript chatView = new ChatViewScript();
+        chatView.addChatMessage(chatMessage);
 
-            GUI.Label(new Rect(25, 120 + (i * 10), 800, 200), "iwasawa: " + messages[i], style);
-        }
+        Debug.Log("チャット送信: " + chatMessage);
+
+        ChatInputScript.InitInputField();
+
+        yield return true;
     }
 
-    void DoMyWindow(int windowID)
-    {
-    }
 }
