@@ -14,18 +14,19 @@ public class ChatViewScript : MonoBehaviour
     //private GUIStyle style;
 
     // ScrollViewのScrollRect
-    //private ScrollRect scrollRect;
+    private ScrollRect scrollRect;
     // ScrollViewのText
     public Text textLog;
 
     private void OnGUI()
     {
-        //scrollRect = GetComponentInParent<ScrollRect>();
+        scrollRect = GetComponentInParent<ScrollRect>();
         textLog = GetComponentInChildren<Text>();
 
         foreach (string message in messages)
         {
             textLog.text += (message + "\n");
+            scrollRect.verticalNormalizedPosition = 0;
         }
         messages = new List<string>();
         //createMessage(messages);
@@ -44,7 +45,7 @@ public class ChatViewScript : MonoBehaviour
         //    {
         //        Debug.Log(currentMessage);
         //        createMessage(currentMessage);
-        //        scrollRect.verticalNormalizedPosition = 0;
+        //        
 
         //        // 送信後は、入力値を空
         //        currentMessage = string.Empty;
