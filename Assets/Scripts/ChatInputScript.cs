@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-public class ChatInput : MonoBehaviour
+public class ChatInputScript : MonoBehaviour
 {
 
     public static InputField chatInputField;
@@ -47,7 +47,7 @@ public class ChatInput : MonoBehaviour
     /// </summary>
 
 
-    void InitInputField()
+    public static void InitInputField()
     {
 
         // 値をリセット
