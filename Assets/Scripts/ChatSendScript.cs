@@ -21,7 +21,7 @@ public class ChatSendScript : MonoBehaviour
         chatMessage = chatInput.text;
 
         // Chatテキスト追加
-        ChatViewScript chatView = new ChatViewScript();
+        ChatViewScript chatView = GetComponent<ChatViewScript>();
         chatView.addChatMessage(chatMessage);
 
         Debug.Log("チャット送信: " + chatMessage);
