@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class HandCard : MonoBehaviour {
 
     public GameObject prefab;
+    private Collider[] cols;
 
     // Use this for initialization
     void Start () {
@@ -14,10 +15,16 @@ public class HandCard : MonoBehaviour {
         prefab = Resources.Load<GameObject>("Card3");
         for (int i = 1; i < 8; i++)
         {
-            //var test = prefab.gameObject.GetComponent<GameObject>();()
+
             GameObject obj = Instantiate(prefab, this.transform.position, Quaternion.identity, this.transform);
-            //obj.FindChild("CardTitle").gameObject.GetComponent<Text>().text = "abcdefghi";
-            //obj.transform.GetComponent<CardTitle>
+            var cardTitle = obj.transform.GetChild(0);
+            //var cardTitle = obj.transform.Find("CardTitle");
+            cardTitle.GetComponent<Text>().text = "変更したタイトル" + i;
+
+            var elementImge = obj.transform.GetChild(1);
+            elementImge.GetComponent<Image>().sprite = Resources.Load<Sprite>("sprites/attack_sample");
+            //var sprite = Resources.Load<Sprite>("sprites/attack_sample");
+
         }
     }
 	
