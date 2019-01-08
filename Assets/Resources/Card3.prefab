@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 222080776320333646}
   - component: {fileID: 114813582482598616}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: cardImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 222149330310363122}
   - component: {fileID: 114277104155921250}
   m_Layer: 5
-  m_Name: Panel (1)
+  m_Name: cardDetail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 114546019673777264}
   - component: {fileID: 114340959377096888}
   - component: {fileID: 225783567098498190}
+  - component: {fileID: 114955155572895692}
   m_Layer: 5
   m_Name: Card3
   m_TagString: Untagged
@@ -296,7 +297,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Title
+  m_Text: CardName
 --- !u!114 &114813582482598616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,6 +379,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114955155572895692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1747429010526042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09aa6c2d240e442d1b5006cbe78104fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114971691119198970
 MonoBehaviour:
   m_ObjectHideFlags: 1
