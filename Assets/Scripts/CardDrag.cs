@@ -46,13 +46,17 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         int newSiblingIndex = placeholderParent.childCount;
 
         for (int i = 0; i < placeholderParent.childCount; i++) {
-            if (this.transform.position.x < placeholderParent.GetChild(i).position.x) {
+            if (this.transform.position.x <= placeholderParent.GetChild(i).position.x && 
+                this.transform.position.x >= placeholderParent.GetChild(i).position.x - 78) {
+                if (this.transform.position.y <= placeholderParent.GetChild(i).position.y &&
+                    this.transform.position.y >= placeholderParent.GetChild(i).position.y - 91)
+                {
+                    newSiblingIndex = i;
 
-                newSiblingIndex = i;
-
-                if (placeholder.transform.GetSiblingIndex() < newSiblingIndex)
-                    newSiblingIndex--;
-                break;
+                    if (placeholder.transform.GetSiblingIndex() < newSiblingIndex)
+                        newSiblingIndex--;
+                    break;
+                }
             }
         }
         placeholder.transform.SetSiblingIndex(newSiblingIndex);
