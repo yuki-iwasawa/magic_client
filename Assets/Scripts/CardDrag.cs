@@ -47,9 +47,9 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
         for (int i = 0; i < placeholderParent.childCount; i++) {
             if (this.transform.position.x <= placeholderParent.GetChild(i).position.x && 
-                this.transform.position.x >= placeholderParent.GetChild(i).position.x - 78) {
+                this.transform.position.x >= placeholderParent.GetChild(i).position.x - 78) { // カードのだいたいの横幅
                 if (this.transform.position.y <= placeholderParent.GetChild(i).position.y &&
-                    this.transform.position.y >= placeholderParent.GetChild(i).position.y - 91)
+                    this.transform.position.y >= placeholderParent.GetChild(i).position.y - 91) // カードのだいたいの縦幅
                 {
                     newSiblingIndex = i;
 
