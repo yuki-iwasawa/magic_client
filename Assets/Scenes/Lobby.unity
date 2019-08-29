@@ -641,7 +641,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5C0F\u6797\u3061\u3042\u304DYUKI"
+  m_Text: IWASAWA
 --- !u!222 &438538241
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -716,7 +716,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30DE\u30EB\u30C1\n\u30D7\u30EC\u30A4"
+  m_Text: 
 --- !u!222 &585260374
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1950,7 +1950,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30BD\u30ED\n\u30D7\u30EC\u30A4"
+  m_Text: "\u90E8\u5C4B\u3092\u63A2\u3059"
 --- !u!222 &1546549854
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2417,7 +2417,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000022553471}
+  m_AnchoredPosition: {x: 0, y: 0.000035963134}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1752530062
